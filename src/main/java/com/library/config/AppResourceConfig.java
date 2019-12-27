@@ -20,7 +20,7 @@ public class AppResourceConfig extends ResourceConfig {
         register(new AbstractBinder() {
             @Override
             protected void configure() {
-                bind(org.hibernate.validator.internal.engine.ConfigurationImpl.class).to(Configuration.class);
+
                 bind(BookRepositoryImpl.class).to(BookRepository.class);
             }
         });
