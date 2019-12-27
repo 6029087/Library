@@ -8,6 +8,7 @@ import org.glassfish.jersey.server.ServerProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.validation.Configuration;
 import javax.ws.rs.ApplicationPath;
 
 @ApplicationPath("/v1")
@@ -19,6 +20,7 @@ public class AppResourceConfig extends ResourceConfig {
         register(new AbstractBinder() {
             @Override
             protected void configure() {
+                bind(org.hibernate.validator.internal.engine.ConfigurationImpl.class).to(Configuration.class);
                 bind(BookRepositoryImpl.class).to(BookRepository.class);
             }
         });
